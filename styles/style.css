@@ -3,3 +3,160 @@
     padding: 0;
     box-sizing: border-box;
 }
+input:hover,
+input:focus {
+    outline: none;
+}
+.divSearchEvents2 {
+  display: none;
+}
+header {
+display: flex;
+ justify-content: space-between;
+ align-items: center;
+width: 100%;
+min-height: 64px;
+padding: 0.5vw 1.5vw;
+font-family: 'Roboto', sans-serif;
+font-size: 1rem;
+}
+.leftHeader {
+display: flex;
+align-items: center;
+}
+header img {
+    padding: 0 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftHeader input {
+    width: 80%;
+    border: none;
+    padding: 0.3vw;
+}
+.leftHeader button {
+    width: 20%;
+justify-content: center;
+    align-items: center;
+    border: none;
+     cursor: pointer;
+}
+.searchEventsBtn {
+    padding: 0.3vw;
+    background-color: transparent;
+      color: rgba(112, 112, 112, 1);
+}
+.searchOrtBtn,.searchEventsBtn2{
+    padding: 0.3vw;
+     border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: rgba(246, 88, 88, 1);
+      color: white;
+       border: none;
+}
+.leftHeader button:hover {
+    color: black;
+    transition: 0.2s;
+}
+.leftHeader button:active{
+    background-color: rgb(206, 203, 203);
+    transition: 0.2s;
+}
+.divSearchEvents {
+    display: flex;
+    border:1px solid rgba(112, 112, 112, 1);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+     transition: all 0.5s ease;
+}
+.divSearchOrt {
+    display: flex;
+     border:1px solid rgba(112, 112, 112, 1);
+ border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+     transition: all 0.4s ease;
+    }
+
+.rightHeader {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1; 
+    gap: 0.5vw;
+}
+.lenguagesDiv {
+    display: flex;
+}
+#language-switcher{
+    border: none;
+    appearance: none;
+    padding: 0.3vw;
+}
+.rightHeader button {
+    cursor: pointer;
+justify-content: center;
+    align-items: center;
+border: none;
+    background-color: transparent;
+    padding: 0.5vw 1vw;
+      border-radius: 6px;
+}
+.rightHeader button:hover{
+    background-color: rgba(0, 121, 138, 1);
+    color: white;
+    transition: 0.2s;
+}
+.rightHeader button:active{
+    background-color: rgb(2, 71, 80);
+    transition: 0.2s;
+}
+@media (max-width: 550px) {
+    header {
+        font-size: 0.8rem;
+    }
+    .divSearchEvents, .divSearchOrt {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        transform: translateY(+30px); 
+        pointer-events: none;
+    }
+    .rightHeader button {
+        max-width: 20vw;
+        padding: 1vw;
+    }
+  
+header img{
+        max-width: 27vw;
+    }
+    .divSearchEvents2 {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(112, 112, 112, 1);
+        border-radius: 8px;
+        margin: 0 2vw
+    }
+    #searchEvents2img {
+      color: rgba(112, 112, 112, 1);
+      padding: 0.5vw;
+    }
+    .searchEventsInput2{
+        width: 85%;
+        height: 100%;
+        border: none;
+        padding: 1vw;
+    }
+    .searchEventsBtn2{
+        width: 10%;
+    }
+    .searchEventsBtn2:hover{
+        color: black;
+          transition: 0.2s;
+    }
+    .searchEventsBtn2:active{
+        background-color: rgb(206, 203, 203);
+    transition: 0.2s;
+    }
+}

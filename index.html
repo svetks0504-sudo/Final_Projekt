@@ -4,12 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeetUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="header">
-        <img src="images/SVG.svg" alt="imag"
-    </div>
+    <header>
+
+        <div class="leftHeader">
+        <img src="assets/images/SVG.svg" alt="images"/>
+
+        <div class="divSearchEvents">
+            <button class="searchEventsBtn">
+        <span class="material-symbols-outlined">
+search
+</span>
+</button>
+        <input type="text" class="searchEventsInput" value="" placeholder="Search events"/>
+        </div>
+
+        <div class="divSearchOrt">
+<input type="text" class="searchOrt" value="" placeholder="City search"/>
+ <button class="searchOrtBtn"> <span class="material-symbols-outlined">
+search
+</span>
+</button>
+</div>
+
+</div>
+
+<div class="rightHeader">
+
+    <div class="lenguagesDiv">
+<span class="material-symbols-outlined">
+language
+</span>
+  <select id="language-switcher">
+    <option value="en">English</option>
+    <option value="deutsch">Deutsch</option>
+    <option value="uk">Українська</option>
+    <option value="ru">Русский</option>
+  </select>
+  </div>
+
+<button class="login">Log in</button>
+<button class="signUp">Sign up</button>
+
+</div>
+    </header>
+
+    <div class="divSearchEvents2">    
+        <span id="searchEvents2img" class="material-symbols-outlined">
+search
+</span>
+        <input type="text" class="searchEventsInput2" value="" placeholder="Search events"/>
+       <button class="searchEventsBtn2">
+        <span class="material-symbols-outlined">
+search
+</span>
+</button>
+</div>
+
 </body>
 <script src="scripts/script.js"></script>
 </html>
