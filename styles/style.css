@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    font-size: 16px;
+}
+.divForPading {
+padding: 4vw 13vw;
+}
 input:hover,
 input:focus {
     outline: none;
@@ -25,7 +31,7 @@ display: flex;
 align-items: center;
 }
 header img {
-    padding: 0 0.5vw;
+    padding: 0 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,21 +67,21 @@ justify-content: center;
 }
 .leftHeader button:active{
     background-color: rgb(206, 203, 203);
-    transition: 0.2s;
+    transition: 0.3s;
 }
-.divSearchEvents {
+.divSearchEvents, .divSearchOrt {
     display: flex;
     border:1px solid rgba(112, 112, 112, 1);
+     transition: all 0.3s ease;
+     width: 20vw;
+}
+ .divSearchEvents {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-     transition: all 0.5s ease;
-}
+ }
 .divSearchOrt {
-    display: flex;
-     border:1px solid rgba(112, 112, 112, 1);
- border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-     transition: all 0.4s ease;
+   border-top-right-radius: 6px;
+   border-bottom-right-radius: 6px;
     }
 
 .rightHeader {
@@ -110,9 +116,75 @@ border: none;
     background-color: rgb(2, 71, 80);
     transition: 0.2s;
 }
+
+/* ----------- вторя часть -----------*/
+.containerForButtonNextPage{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+.nextPageLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    width: 31vw;
+}
+.nextPageLeft h1 {
+    font-size: 2.6rem;
+}
+.nextPageLeft p {
+    font-size: 1rem;
+    line-height: 2;
+}
+.joinMeetup {
+    color:white;
+    background-color: rgba(0, 121, 138, 1);
+    border-radius: 5px;
+    max-width: 10vw;
+    padding: 0.6vw;
+    border: none;
+}
+.nextPageRight {
+    display: flex;
+    justify-content: center;
+align-items: center;
+width: 50%;
+}
+.nextPageRight img{
+   width: 24vw;
+}
+
+/* ----------- третяя часть -----------*/
+.topEditSearchOrt, .leftEditSearch, .carts, .goingAndPrice {
+    display: flex;  
+}
+.carts p, .goingAndPrice, .goingAndPrice span {
+    display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.eventsNearDiv, .upcomingOnlineEventsDiv{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+}
+
+.topEditSearchOrt{
+    justify-content: space-between;
+}
+.carts{
+    flex-direction: column;
+}
+.carts img {
+    max-width: 272px;
+    max-height: 153px;
+}
+
+/* ################################ */
 @media (max-width: 550px) {
-    header {
-        font-size: 0.8rem;
+    html {
+        font-size: 12px;
     }
     .divSearchEvents, .divSearchOrt {
         height: 0;
@@ -136,7 +208,7 @@ header img{
         align-items: center;
         border: 1px solid rgba(112, 112, 112, 1);
         border-radius: 8px;
-        margin: 0 2vw
+        margin: 0 3vw
     }
     #searchEvents2img {
       color: rgba(112, 112, 112, 1);
@@ -159,4 +231,19 @@ header img{
         background-color: rgb(206, 203, 203);
     transition: 0.2s;
     }
+    .containerForButtonNextPage{
+    padding: 3vw;
+    }
+    .nextPageLeft, .nextPageRight {
+        width: 100%
+    }
+    .nextPageRight img{
+   width: 50vw;
 }
+.joinMeetup {
+  margin: 2vw auto;
+  max-width: 30vw;
+  padding: 2vw;
+}
+}
+/* ################################ */

@@ -1,3 +1,105 @@
+const eventsNear = [
+{
+  image:"assets/images/cart1.svg",
+  title:"Day Trading Idea and Strategy",
+  category: "Business (5 km)",
+  date:"Mon, Mar 18 · 7:00 PM PDT",
+ attendees: "1 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart2.svg",
+  title:"Let's Talk Networking: JPMorgan Chase in Palo Alto",
+  category:"Business (25 km)",
+  date:"Tue, Mar 19 · 5:00 PM PDT",
+ attendees: "41 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart3.svg",
+  title:"Tech Talks & Quiz: Next-Gen Database Solutions for Emerging Use Cases",
+  category:"Technology",
+  date:"Wed, Mar 13 · 6:00 PM PDT",
+ attendees: "40 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart4.svg",
+  title:"INFORMS San Francisco Chapter In-Person Event",
+  category:"Health and Wellbeing (50 km)",
+  date:"Thu, Mar 28 · 5:00 PM PDT",
+ attendees: "41 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart5.svg",
+  title:"AI Wednesdays - Meet and Greet!",
+  category:"Technology (5 km)",
+  date:"Wed, Mar 13 · 6:30 PM PDT",
+ attendees: "29 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart6.svg",
+  title:"ROS By-The-Bay March 2024",
+  category:"Social Activities",
+  date:"Thu, Mar 21 · 6:00 PM PDT",
+ attendees: "51 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart7.svg",
+  title:"Free Christian Singles' Dinner",
+  category:"Hobbies and Passions (10 km)",
+  date:"Fri, Mar 29 · 6:00 PM PDT",
+ attendees: "11 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart8.svg",
+  title:"In-person: Deep Dive into RAG Architectures (Food served)",
+  category:"Hobbies and Passions (50 km)",
+  date:"Thu, Mar 14 · 5:00 PM PDT",
+ attendees: "16 going",
+    price: "Free"
+},
+];
+
+const upcomingOnlineEvents = [
+{
+  image:"assets/images/cart9.svg",
+  title:"Amazing On-Demand 15 Min Interviews with Top Coaches and Speakers",
+  category:"Business (25 km)",
+  date:"Thu, Mar 14 · 6:00 PM PDT",
+ attendees: "3 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart10.svg",
+  title:"Vision Pro Developers Online Meetup",
+  category:"Technology",
+  date:"Wed, Mar 13 · 7:00 PM PDT",
+ attendees: "51 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart11.svg",
+  title:"Significant Musical Moments",
+  category:"Hobbies and Passions (10 km)",
+  date:"Wed, Mar 13 · 6:00 PM PDT",
+ attendees: "16 going",
+    price: "Free"
+},
+{
+  image:"assets/images/cart12.svg",
+  title:"FREE Webinar: Introduction to Power BI",
+  category:"Technology",
+  date:"Thu, Mar 14 · 5:30 PM PDT",
+ attendees: "33 going",
+    price: "Free"
+},
+];
+
 const eventsStore = [
   {
     title: "INFJ Personality Type - Coffee Shop Meet & Greet",
@@ -66,6 +168,7 @@ const eventsStore = [
   },
 ];
 
+
 const filters = [
   {
     type: "day",
@@ -97,3 +200,45 @@ const filters = [
     ],
   },
 ];
+
+
+const eventsNearDiv = document.querySelector(".eventsNearDiv");
+const upcomingOnlineEventsDiv = document.querySelector(".upcomingOnlineEventsDiv");
+
+
+
+function createCartsForEvents(arr, container){
+  arr.forEach((element)=>{
+const newCarts = document.createElement("div");
+newCarts.classList.add("carts");
+
+ //не виходило вставити малюнок як div
+  newCarts.innerHTML=`
+ <img src="${element.image}" alt="${element.title}">
+  <h3>${element.title}</h3>
+ <p>${element.category}</p>
+
+
+   <p><span class="material-symbols-outlined">
+calendar_today
+</span> ${element.date}</p> 
+
+ <div class="goingAndPrice">
+    <span>
+      <span class="material-symbols-outlined">priority</span>
+      ${element.attendees}
+    </span> 
+
+    <span>
+      <span class="material-symbols-outlined">confirmation_number</span>
+      ${element.price}
+    </span> 
+  </div>
+  `
+  container.appendChild(newCarts);
+  });
+}
+
+
+createCartsForEvents(eventsNear, eventsNearDiv);
+createCartsForEvents(upcomingOnlineEvents, upcomingOnlineEventsDiv);
