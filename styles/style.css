@@ -4,10 +4,29 @@
     box-sizing: border-box;
 }
 html {
-    font-size: 16px;
+font-size: 16px;
 }
-.divForPading {
-padding: 4vw 13vw;
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+       font-family: 'Roboto', sans-serif;
+}
+ h1 {
+    font-size: 2.6rem;
+}
+h2 {
+font-size: 1.75rem;
+}
+h3{
+font-size: 1.25rem;
+}
+h4{
+font-size: 1rem;
+}
+p {
+    font-size: 1rem;
 }
 input:hover,
 input:focus {
@@ -21,17 +40,18 @@ display: flex;
  justify-content: space-between;
  align-items: center;
 width: 100%;
-min-height: 64px;
-padding: 0.5vw 1.5vw;
-font-family: 'Roboto', sans-serif;
+height: 4.2vw;
 font-size: 1rem;
 }
 .leftHeader {
 display: flex;
 align-items: center;
+height: 2,7vw;
 }
 header img {
-    padding: 0 2vw;
+    width: 7.8vw;
+    padding-left: 1.6vw;
+   margin-right: 2.6vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,28 +59,37 @@ header img {
 .leftHeader input {
     width: 80%;
     border: none;
-    padding: 0.3vw;
+}
+.searchOrt{
+padding-left: 1.1vw;
 }
 .leftHeader button {
-    width: 20%;
+    display: flex;
 justify-content: center;
     align-items: center;
     border: none;
      cursor: pointer;
 }
 .searchEventsBtn {
-    padding: 0.3vw;
     background-color: transparent;
       color: rgba(112, 112, 112, 1);
+      padding: 0.7vw;
+}
+#iconHeader {
+    font-size: 1.5vw;
 }
 .searchOrtBtn,.searchEventsBtn2{
-    padding: 0.3vw;
      border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     background-color: rgba(246, 88, 88, 1);
       color: white;
-       border: none;
+       border: none;  
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 20%;
 }
+
 .leftHeader button:hover {
     color: black;
     transition: 0.2s;
@@ -73,7 +102,8 @@ justify-content: center;
     display: flex;
     border:1px solid rgba(112, 112, 112, 1);
      transition: all 0.3s ease;
-     width: 20vw;
+     width: 19.9vw;
+     height: 2.7vw;
 }
  .divSearchEvents {
     border-top-left-radius: 6px;
@@ -88,7 +118,8 @@ justify-content: center;
     display: flex;
     align-items: center;
     flex-shrink: 1; 
-    gap: 0.5vw;
+    gap: 1.5vw;
+    margin-right: 3.3vw;
 }
 .lenguagesDiv {
     display: flex;
@@ -104,7 +135,7 @@ justify-content: center;
     align-items: center;
 border: none;
     background-color: transparent;
-    padding: 0.5vw 1vw;
+    padding: 0.52vw 1vw;
       border-radius: 6px;
 }
 .rightHeader button:hover{
@@ -117,74 +148,208 @@ border: none;
     transition: 0.2s;
 }
 
-/* ----------- вторя часть -----------*/
+/* ----------- 2 часть -----------*/
+.mittelTugeser {
+       display: flex;
+    flex-direction: column;
+     width: 79.1vw;
+}
 .containerForButtonNextPage{
     display: flex;
     flex-wrap: wrap;
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
+    align-items: center;
+   margin-top: 6vw;
+   margin-bottom: 5.3vw;
+    gap: 3.6vw;
 }
 .nextPageLeft {
     display: flex;
     flex-direction: column;
-    gap: 2vw;
-    width: 31vw;
+    gap: 1.6vw;
+    width: 39.7vw;
+    padding-right: 0.5vw;
 }
-.nextPageLeft h1 {
-    font-size: 2.6rem;
-}
+
 .nextPageLeft p {
-    font-size: 1rem;
-    line-height: 2;
+    line-height: 1.5;
 }
 .joinMeetup {
     color:white;
     background-color: rgba(0, 121, 138, 1);
     border-radius: 5px;
-    max-width: 10vw;
-    padding: 0.6vw;
+    width: 8.3vw;
+   padding: 0.52vw 1vw;
     border: none;
 }
 .nextPageRight {
     display: flex;
     justify-content: center;
 align-items: center;
-width: 50%;
 }
 .nextPageRight img{
-   width: 24vw;
+   width: 24.6vw;
+   height: 17.8vw;
 }
 
-/* ----------- третяя часть -----------*/
-.topEditSearchOrt, .leftEditSearch, .carts, .goingAndPrice {
-    display: flex;  
+/* ----------- 3 часть -----------*/
+
+.leftEditSearch, .carts, .goingAndPrice {
+    display: flex; 
+    align-items: center; 
+}
+
+.editSearchOrt,.editSearchOrtBtn {
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 121, 138, 1);
+     font-size: 1rem;
 }
 .carts p, .goingAndPrice, .goingAndPrice span {
-    display: flex;
+display: flex;
   align-items: center;
-  gap: 5px;
+}
+.goingAndPrice {
+  gap:0.99rem;  
+}
+.goingAndPrice span {
+gap: 0.39rem;
 }
 .eventsNearDiv, .upcomingOnlineEventsDiv{
     display: flex;
     flex-wrap: wrap;
-    gap: 36px;
+    gap: 2.2rem;
+     justify-content: space-between;
 }
 
-.topEditSearchOrt{
+.topEditSearchOrt, .upcomingTitel {
+      display: flex; 
+    align-items: center; 
+    width: 100%;
     justify-content: space-between;
+         padding: 1vw 0;
+}
+.upcomingOnlineEventsDiv {
+    margin-top: 2.6vw;
+    margin-bottom: 1.6vw;
+}
+ h4 {
+    color: rgba(0, 121, 138, 1);
+}
+.divEditSearchOrt{
+    display: flex;
+    align-items: center;
+    padding: 0.8vw;
+    border-radius: 6px;
+    background-color: rgba(151, 202, 209, 0.12);
+    width: 15.8vw;
+    font-size: 1.2rem;
+    margin-left: 1vw;
+}
+.editSearchOrt::placeholder {
+    color: rgba(0, 121, 138, 1);
 }
 .carts{
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 272px;
+    min-height: 26.4vw;
+    gap:0.5rem;
 }
 .carts img {
     max-width: 272px;
     max-height: 153px;
 }
+.stringCategory{
+    color: rgba(112, 112, 112, 1);
+    height: 2.6vw;
+}
 
+/*--------- 4 часть  -----------*/
+
+.conteiner-MeetUp {
+    background-color: rgba(151, 202, 209, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    margin: 3.4vw 0 4.2vw 0;
+}
+
+.right-MeetUp {
+    width: 48.9vw;
+    padding-right: 4.9vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+     line-height: 1.5;
+}
+.conteiner-MeetUp img {
+    width: 22.5vw;
+    height: 13vw;
+    margin: 1.3vw 0;
+}
+.signUpRed{
+    color: white;
+    background-color: rgba(227, 35, 89, 1);
+    border-radius: 5px;
+    border: none;
+    width: 12.7vw;
+    height: 2.6vw;
+}
+
+/*--------- 5 часть  -----------*/
+.exploreCategories {
+display: flex;
+align-items: center;
+gap:1.1vw;
+margin-bottom: 4.2vw;
+margin-top: 1.6vw;
+}
+.iconWithText{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+width: 8.9vw;
+height: 7.4vw;
+line-height: 1.5;
+background-color: rgba(151, 202, 209, 0.08);
+padding: 1.5vw;
+}
+.iconWithText img {
+width: 1.3vw;
+height: 1.3vw;
+}
+.popularString {
+    margin-top: 1vw;
+    margin-bottom: 1.9vw;
+    color: rgba(112, 112, 112, 1);
+}
+.containerForCities {
+    display: flex;
+    gap: 2.8vw;
+}
+.popularCitie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6vw;
+}
+.popularCitie img {
+    height: 13.6vw;
+    width: 13.6vw;
+}
 /* ################################ */
-@media (max-width: 550px) {
+@media (max-width: 392px) {
     html {
         font-size: 12px;
+    }
+    header {
+        height: 10.7vw;
     }
     .divSearchEvents, .divSearchOrt {
         height: 0;
@@ -193,35 +358,33 @@ width: 50%;
         transform: translateY(+30px); 
         pointer-events: none;
     }
-    .rightHeader button {
-        max-width: 20vw;
-        padding: 1vw;
-    }
   
-header img{
-        max-width: 27vw;
+.leftHeader img{
+        width: 30.2vw;
     }
     .divSearchEvents2 {
-        width: 90%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border: 1px solid rgba(112, 112, 112, 1);
         border-radius: 8px;
-        margin: 0 3vw
+        margin: 0.7rem;
+        height: 2.7vw;
+        height: 10.7vw;
     }
     #searchEvents2img {
       color: rgba(112, 112, 112, 1);
-      padding: 0.5vw;
+      width: 5.6vw;
+      padding-left: 2.5vw;
     }
     .searchEventsInput2{
-        width: 85%;
         height: 100%;
         border: none;
         padding: 1vw;
     }
     .searchEventsBtn2{
-        width: 10%;
+        width: 10.7vw;
+        height: 100%;
     }
     .searchEventsBtn2:hover{
         color: black;
@@ -242,7 +405,6 @@ header img{
 }
 .joinMeetup {
   margin: 2vw auto;
-  max-width: 30vw;
   padding: 2vw;
 }
 }
