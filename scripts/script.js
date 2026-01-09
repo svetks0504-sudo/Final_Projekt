@@ -214,12 +214,13 @@ newCarts.classList.add("carts");
 
  //не виходило вставити малюнок як div
   newCarts.innerHTML=`
+ 
  <img src="${element.image}" alt="${element.title}">
+ 
+  <div class="textCarts">
   <h3>${element.title}</h3>
- <p class="stringCategory">${element.category}</p>
-
-
-   <p><span class="material-symbols-outlined">
+ <p id="stringCategory">${element.category}</p>
+   <p id="calender"><span class="material-symbols-outlined">
 calendar_today
 </span> ${element.date}</p> 
 
@@ -233,6 +234,7 @@ calendar_today
       <span class="material-symbols-outlined">confirmation_number</span>
       ${element.price}
     </span> 
+  </div>
   </div>
   `
   container.appendChild(newCarts);
