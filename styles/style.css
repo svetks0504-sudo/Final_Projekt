@@ -294,13 +294,16 @@ display: flex;
     display: flex;
     align-items: center;
     color: rgba(112, 112, 112, 1);
-    height: 2.6vw;
+    height: 2.6vw 3.7vw;
 }
 #calender {
     gap: 0.5rem;
 }
 /*--------- 4 часть  -----------*/
 
+#hendHochImg {
+   display: none;
+  }
 .conteiner-MeetUp {
     background-color: rgba(151, 202, 209, 0.08);
     display: flex;
@@ -309,6 +312,7 @@ display: flex;
     height: auto;
     width: 100%;
     margin: 3.4vw 0 4.2vw 0;
+    padding: 2.4vw ;
 }
 
 .right-MeetUp {
@@ -319,7 +323,7 @@ display: flex;
     gap: 1vw;
      line-height: 1.5;
 }
-.conteiner-MeetUp img {
+.hendHochImg2 {
     width: 22.5vw;
     height: 13vw;
     margin: 1.3vw 0;
@@ -421,6 +425,7 @@ height: 20px;
 .oneCartinFrends img {
     width: 24.9vw;
     margin-bottom: 1.6vw;
+    border-radius: 8px;
 }
 .oneCartinFrends p {
     padding: 0.8vw 0 1.05vw 0;
@@ -471,7 +476,7 @@ width: 19.3vw;
     color: white;
     padding: 0.7vw 0.9vw;
     border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 #titel {
@@ -587,6 +592,8 @@ height: 20px;
     font-size: 0.72rem;
 }
 }
+
+
 @media (max-width: 600px){
     .rightHeader {
         margin-right: 1vw;
@@ -609,6 +616,7 @@ min-width: 55%;
 .carts img {
 width: 24.8vw;
 flex-shrink: 0;
+border-radius: 5px;
 }
 .discoverAndStart {
     gap: 3vw;
@@ -644,10 +652,30 @@ flex-shrink: 0;
         font-size: 9px;
     }
     p {
+        font-size: 1.4rem;
+    }
+    h2 {
+        font-size: 2.3rem;
+        padding: 0 4vw;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.4rem;
+    }
+    .oneCartinFrends a {
         font-size: 1.3rem;
     }
+    .mittelTugeser {
+    padding: 0;
+    width: 100%;
+}
+.containerForButtonNextPage,.carts {
+    margin: 0 4vw;
+}
     header {
-        height: 8.6vw;
+        height: 10.7vw;
     }
     .divSearchEvents, .divSearchOrt {
         height: 0;
@@ -675,7 +703,7 @@ flex-shrink: 0;
   align-items: center;
         border: 1px solid rgba(112, 112, 112, 1);
         border-radius: 8px;
-        margin: 0.7rem;
+        margin: 2.8vw 4vw;
         height: 2.7vw;
         height: 10.7vw;
     }
@@ -702,8 +730,9 @@ flex-shrink: 0;
         background-color: rgb(206, 203, 203);
     transition: 0.2s;
     }
-    .nextPageLeft {
+    .nextPageLeft p{
         line-height: 2;
+        padding-right: 2.8vw;
     }
     .containerForButtonNextPage{
     padding-left: 1vw;
@@ -719,6 +748,10 @@ flex-shrink: 0;
   margin: 2vw auto;
   padding: 2vw;
   width: 30%;
+}
+.nextPageLeft {
+    gap: 3.8vw;
+    margin-top: 8.9vw;
 }
 .divEditSearchOrt {
     width: 41.9vw;
@@ -744,29 +777,126 @@ padding: 1.8vw;
 .textCarts span{
 display: none;
 }
-
+.exploreCategories {
+margin-bottom: 11.2vw;
+}
+.iconWithText {
+    width: 34.4vw;
+    height: 28.6vw;
+    padding: 4.3vw 6.8vw;
+    gap: 1.1vw;
+}
+#popularString {
+padding: 2vw 4vw 1.5vw 4vw;
+line-height: 2;
+margin: 0;
+}
  .popularCitie img {
     width: 39vw;
 }
 .conteiner-MeetUp {
-/*#############################*/
+     padding: 4vw 4vw 8.2vw 4vw;
+     margin-bottom: 0;
   }
-  .right-MeetUp {
-    width: 100%;
- padding: 0 4vw;
-  }
-.conteiner-MeetUp img {
+#hendHochImg2 {
     display: none;
 }
   .right-MeetUp {
     width: 100%;
-    
+    line-height: 1.9;
+    gap: 0;
   }
   .signUpRed {
     width: 49vw;
     height: 10.2vw;
     align-self: center;
+    margin-top: 5.6vw;
   }
+  #hendHochImg {
+    display: block;
+    width: 60.7vw;
+    align-self: center;
+    margin-bottom: 1.6vw;
+  }
+  .discoverAndStart {
+    flex-wrap: wrap;
+  }
+  .conteinerForGroups{
+margin: 0 4vw;
+gap: 0;
+padding: 5.1vw 0 3.8vw 0;
+  }
+  .discoverText{
+padding-right: 15.5vw;
+gap: 2.5vw;
+  }
+  #greyDiscoverText {
+    color: rgba(33, 33, 33, 1);
+    line-height: 1.4;
+  }
+  #iconForDiscover {
+font-size: 6.5vw;
+margin: 0 3.8vw;
+  }
+  .frendString {
+display: none;
+  }
+  
+ .containerFriends{
+    padding: 6.4vw 4vw 26.3vw 4vw;
+    gap: 11.4vw;
+  }
+  .containerFriends h4{
+   padding-right: 33vw; 
+  }
+  #greyString {
+padding: 2.9vw 22.5vw 3.9vw 0;
+  }
+  .labelApp {
+    display: none;
+  }
+  .containerForLinks p {
+line-height: 2;
+font-size: 1.5rem;
+  }
+.footer{
+width: 100%;
+padding:0 1.8vw 0 6vw;
+}
+.topFooter p, #titel, #follow {
+    font-size: 1.8rem;
+}
+.topFooter{
+justify-content: space-between;
+margin:2.5vw 0;
+
+padding: 5.1vw 0;
+border: none;
+}
+#date{
+    font-size: 1.5rem;
+    margin-bottom: 6.6vw;
+}
+.getStarted{
+padding: 2.5vw 3.6vw;
+}
+.mittelFooter{
+width: 100%;
+justify-content: space-between;
+margin-bottom: 4.1vw;
+white-space: nowrap;
+}
+.iconsForFooter{
+justify-content: flex-start;
+}
+.smallIcons{
+height: auto;
+gap: 8.3vw;
+width: 100%;
+justify-content: start;
+margin: 3.1vw 0 13vw 0;
+}
+
 }
 /* ################################ */
 p, h1, h2, h3, h4 {
