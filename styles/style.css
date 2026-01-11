@@ -62,7 +62,9 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
+
 .leftHeader input {
     width: 80%;
     border: none;
@@ -188,6 +190,7 @@ border: none;
     width: 8.3vw;
    padding: 0.52vw 1vw;
     border: none;
+    cursor: pointer;
 }
 .nextPageRight {
     display: flex;
@@ -868,8 +871,6 @@ padding:0 1.8vw 0 6vw;
 }
 .topFooter{
 justify-content: space-between;
-margin:2.5vw 0;
-
 padding: 5.1vw 0;
 border: none;
 }
@@ -878,7 +879,7 @@ border: none;
     margin-bottom: 6.6vw;
 }
 .getStarted{
-padding: 2.5vw 3.6vw;
+padding: 2.4vw 3.6vw;
 }
 .mittelFooter{
 width: 100%;
@@ -896,9 +897,17 @@ width: 100%;
 justify-content: start;
 margin: 3.1vw 0 13vw 0;
 }
-
+.linieFooter {
+    height: 1px;
+    background-color: rgba(112, 112, 112, 1);
+    width: 72%;
+    margin-bottom: 8.5vw;
+}
 }
 /* ################################ */
 p, h1, h2, h3, h4 {
   overflow-wrap: break-word;
 }
+
+
+/* ############## SecondPage ################## */
