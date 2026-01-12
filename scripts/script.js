@@ -99,7 +99,6 @@ const filters = [
   },
 ];
 
-
 const eventsNear = [
 {
   image:"assets/images/cart1.svg",
@@ -208,6 +207,7 @@ const upcomingOnlineEventsDiv = document.querySelector(".upcomingOnlineEventsDiv
 const imageMeetup = document.querySelector("#imageMeetup");
 const joinMeetup = document.querySelector(".joinMeetup");
 const horizontalCards = document.querySelector(".horizontalCards");
+const filterDropdown = document.querySelectorAll(".filterDropdown");//забула що нужно з детьми
 
 function pageSwitcher(elem, src){
    if (!elem) return;
@@ -253,8 +253,39 @@ calendar_today
   });
 }
 
+function formatDateUTC(date) {
+ const formatter = new Intl.DateTimeFormat("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+     hour12: true, 
+     timeZone: "UTC"
+  });
+
+  const parts = formatter.formatToParts(date);
+
+let weekday, month, day, hour, minute, dayPeriod;
+
+  parts.forEach(part => {
+    switch (part.type) {
+      case "weekday": weekday = part.value.toUpperCase(); break;
+      case "month": month = part.value.toUpperCase(); break;
+      case "day": day = part.value; break;
+      case "hour": hour = part.value; break;
+      case "minute": minute = part.value; break;
+      case "dayPeriod": dayPeriod = part.value.toUpperCase(); break;
+    }
+  });
+
+  return `${weekday}, ${month} ${day} · ${hour}:${minute} ${dayPeriod} UTC`;
+}
+
 function createHorizontalCard (arr){
   if (!horizontalCards) return;
+
+  horizontalCards.innerHTML = "";
 
   arr.forEach((element)=>{
 const newCarts = document.createElement("div");
@@ -263,10 +294,12 @@ newCarts.classList.add("cartSecondPage");
 newCarts.innerHTML=`
 <img src=${element.image} alt=${element.title}/>
 <div class="textCartSecondPage">
-<h3>${element.date}</h3>
-<p id="bigFontSise">${element.title}</p>
-<h3>${element.category}(${element.distance})</h3>
- ${element.attendees != null ? `<p>${element.attendees}</p>` : ""}
+<div>
+<p class="textGreyAndSmall">${formatDateUTC(element.date)}</p>
+<p>${element.title}</p>
+<p class="textGreyAndSmall">${element.category}(${element.distance} km)</p>
+</div>
+ ${element.attendees != null ? `<p id="attendesText" class="textGreyAndSmall">${element.attendees} attendees</p>` : ""}
 </div>
 `;
 
@@ -274,8 +307,74 @@ horizontalCards.appendChild(newCarts);
   });
 }
 
+
+//********** FILTER ***************
+const selectedFilters = {};
+
+
+filters.forEach(filter => {
+  selectedFilters[filter.type] = filter.options[0];
+});//начальное значение за умолчанием
+
+// рендер dropdown опций
+function renderDropdownOptions() {
+  filterDropdown.forEach(dropdown => {
+    const btn = dropdown.querySelector(".dropdownBtn");
+const optionsContainer = dropdown.querySelector(".dropdownOptions");
+    const type = dropdown.dataset.type;
+  
+    optionsContainer.innerHTML = "";//забила очистить
+
+    // создаем опции
+    filters.find(filter => filter.type === type).options.forEach(option => {
+      const div = document.createElement("div");
+      div.classList.add("option");
+      div.textContent = option instanceof Date ? formatDateUTC(option) : option;
+
+      //вешаем слушателя на клик
+      div.addEventListener("click", () => {
+        selectedFilters[type] = option;
+        btn.innerHTML = (option instanceof Date ? formatDateUTC(option) : option) + ' <img src="assets/icons/SVG.svg"/>';
+        optionsContainer.style.display = "none"; // прячем список
+        applyFilters(eventsStore, selectedFilters); // нов карточки
+      });
+
+      optionsContainer.appendChild(div);
+    });
+
+    // toggle спискa
+    btn.addEventListener("click", () => {
+      optionsContainer.style.display = optionsContainer.style.display === "block" ? "none" : "block";
+    });
+  });
+}
+
+function applyFilters(events, filters) {
+  const filtered = events.filter(event => {
+    // TYPE
+    if (filters.type !== "Any type" && event.type !== filters.type) return false;
+    // CATEGORY
+    if (filters.category !== "Any category" && event.category !== filters.category) return false;
+    // DISTANCE
+    if (filters.distance !== "Any distance" && event.distance > filters.distance) return false;
+    // DAY
+    if (filters.day !== "Any date") {
+      const d1 = event.date;
+      const d2 = filters.day;
+      const sameDay = d1.getFullYear() === d2.getFullYear() &&
+                      d1.getMonth() === d2.getMonth() &&
+                      d1.getDate() === d2.getDate();
+      if (!sameDay) return false;
+    }
+    return true;
+  });
+
+  createHorizontalCard(filtered); // рендер карточек
+}
+
 createCartsForEvents(eventsNear, eventsNearDiv);
 createCartsForEvents(upcomingOnlineEvents, upcomingOnlineEventsDiv);
-createHorizontalCard(eventsStore);
 pageSwitcher(imageMeetup, "index.html");
 pageSwitcher(joinMeetup, "secondPage.html");
+applyFilters(eventsStore, selectedFilters); // сначало все карточки
+renderDropdownOptions();
