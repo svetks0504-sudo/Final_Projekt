@@ -207,6 +207,7 @@ const eventsNearDiv = document.querySelector(".eventsNearDiv");
 const upcomingOnlineEventsDiv = document.querySelector(".upcomingOnlineEventsDiv");
 const imageMeetup = document.querySelector("#imageMeetup");
 const joinMeetup = document.querySelector(".joinMeetup");
+const horizontalCards = document.querySelector(".horizontalCards");
 
 function pageSwitcher(elem, src){
    if (!elem) return;
@@ -252,9 +253,29 @@ calendar_today
   });
 }
 
+function createHorizontalCard (arr){
+  if (!horizontalCards) return;
+
+  arr.forEach((element)=>{
+const newCarts = document.createElement("div");
+newCarts.classList.add("cartSecondPage");
+
+newCarts.innerHTML=`
+<img src=${element.image} alt=${element.title}/>
+<div class="textCartSecondPage">
+<h3>${element.date}</h3>
+<p id="bigFontSise">${element.title}</p>
+<h3>${element.category}(${element.distance})</h3>
+ ${element.attendees != null ? `<p>${element.attendees}</p>` : ""}
+</div>
+`;
+
+horizontalCards.appendChild(newCarts);
+  });
+}
 
 createCartsForEvents(eventsNear, eventsNearDiv);
 createCartsForEvents(upcomingOnlineEvents, upcomingOnlineEventsDiv);
-
+createHorizontalCard(eventsStore);
 pageSwitcher(imageMeetup, "index.html");
 pageSwitcher(joinMeetup, "secondPage.html");
