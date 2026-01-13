@@ -153,6 +153,7 @@ border: none;
     background-color: transparent;
     padding: 0.52vw 1vw;
       border-radius: 6px;
+      font-weight: 500;
 }
 .rightHeader button:hover{
     background-color: rgba(0, 121, 138, 1);
@@ -192,9 +193,9 @@ border: none;
 .joinMeetup {
     color:white;
     background-color: rgba(0, 121, 138, 1);
-    border-radius: 5px;
-    width: 8.3vw;
-   padding: 0.52vw 1vw;
+    border-radius: 8px;
+    width: 8.5vw;
+   padding: 0.8vw 1.2vw;
     border: none;
     cursor: pointer;
     font-weight: 400;
@@ -265,6 +266,8 @@ gap: 0.39rem;
     flex: 1;
     min-width: 0;
     font-weight: 600;
+    font-size: 1.2rem;
+    font-family:  'Roboto', sans-serif;
 }
 
 .editSearchOrtBtn{
@@ -289,12 +292,20 @@ gap: 0.39rem;
    gap:0.75rem;
 }
 .textCarts {
+    display: flex;
      flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
      min-width: 220px;  
-display: flex;
-    padding-right: 1vw;
+    line-height: 2;
+    padding-right: 2vw;
+}
+.textCarts h3 {
+    line-height: 1.2;
+}
+.forBlackText span, #calender span {
+    color: rgba(112, 112, 112, 1);
+    font-size: 1.2rem;
 }
 .carts img {
   width: 100%;
@@ -305,7 +316,7 @@ display: flex;
     display: flex;
     align-items: center;
     color: rgba(112, 112, 112, 1);
-    height: 2.6vw 3.7vw;
+    height: 3vw 4vw;
     font-weight: 500;
 }
 #calender {
@@ -326,15 +337,19 @@ display: flex;
     margin: 3.4vw 0 4.2vw 0;
     padding: 2.4vw ;
 }
-
+#joinMeetupText {
+    font-size: 2rem;
+font-weight: 600;
+}
 .right-MeetUp {
     width: 48.9vw;
-    padding-right: 4.9vw;
+    padding-right: 8vw;
     display: flex;
     flex-direction: column;
     gap: 1vw;
      line-height: 1.5;
 }
+
 .hendHochImg2 {
     width: 22.5vw;
     height: 13vw;
@@ -366,7 +381,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: center;
-width: 8.4rem;
+width: 9rem;
 height: 7rem;
 line-height: 1.5;
 background-color: rgba(151, 202, 209, 0.08);
@@ -412,7 +427,7 @@ height: 20px;
     gap:1.6vw;
      background-color: rgba(151, 202, 209, 0.08);
      width: 38.4vw;
-     padding: 2.1vw 0 1.6vw 1.6vw;
+     padding: 2.1vw 8vw 1.6vw 1.6vw;
 }
 .discoverText {
     display: flex;
@@ -424,6 +439,7 @@ height: 20px;
 #iconForDiscover {
     font-size: 2.7vw;
     color: rgba(0, 130, 148, 1);
+    font-weight: 700;
 }
 
 /*--------- 6 часть  -----------*/
@@ -435,6 +451,7 @@ height: 20px;
 .frendString {
     margin-top: 1.05vw;
     margin-bottom: 1.85vw;
+    padding-right:26vw;
 }
 .oneCartinFrends img {
     width: 24.9vw;
@@ -444,9 +461,11 @@ height: 20px;
 .oneCartinFrends p {
     padding: 0.8vw 0 1.05vw 0;
     width: 24.5vw;
+    line-height: 1.5;
 }
 .oneCartinFrends h4 {
 width: 19.3vw;
+line-height: 1.5;
 }
 .oneCartinFrends a{
     color: rgba(0, 130, 148, 1);
@@ -491,9 +510,10 @@ width: 19.3vw;
 .getStarted {
     background-color: transparent;
     color: white;
-    padding: 0.7vw 0.9vw;
-    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 10px 14px;
+    border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 6px;
+    font-size: 16px;
 }
 
 #titel {
@@ -505,6 +525,7 @@ width: 19.3vw;
     flex-direction: column;
     gap:0.5vw;
     width: 24.7vw;
+    line-height: 1.5;
 }
 .containerForLinks p{
     font-size: 0.87rem;
@@ -553,7 +574,7 @@ p, h1, h2, h3, h4 {
 
 .mittelTugeserSecond {
     display: flex;
-    padding: 5.8vw 8.8vw 6.7vw 10.4vw;
+    padding: 5.8vw 8.7vw 6.7vw 10vw;
  width: 100%;
  justify-content: space-between;
 }
@@ -570,25 +591,21 @@ padding: 0 0 1.05vw 0;
 /******* FILTER BUTTON *******/
 .filter {
     display: flex;
-    gap: 19.4px;    
+    gap: 16px;    
 }
-.filterDropdown{
-     position: relative;
-  display: inline-block;
-}
+
 .dropdownOptions {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
   background: white;
   border: 1px solid #ddd;
-  min-width: 50px;
-  z-index: 3;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1rem;
 }
 .dropdownOptions .option {
-  padding: 8px 12px;
+    padding: 0.6rem 1rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 .dropdownOptions .option:hover {
   background-color: #f0f0f0;
@@ -600,11 +617,15 @@ padding: 0 0 1.05vw 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
+    padding: 1.05vw;
     gap:0.7vw;
     font-size: 1rem;
     font-weight: 500;
    white-space: nowrap;
+}
+.dropdownBtn img {
+  width: 1rem;
+  height: 1rem;
 }
 .dropdownBtn:hover {
     background-color: rgb(218, 219, 219);;
@@ -614,13 +635,39 @@ padding: 0 0 1.05vw 0;
 }
 .textGreyAndSmall{
 font-size: 0.9rem;
-color: rgba(124, 111, 80, 1);
-
+color: rgba(112, 112, 112, 1);
+}
+.textBrounAndSmall {
+    font-size: 0.9rem;
+    color: rgba(124, 111, 80, 1);
+}
+.two {
+     display: none;
+}
+.one {
+    display: flex;
+    position: absolute;
+    left: 0.5vw;
+    top: 1.6vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+}
+.onlineText{
+    align-items: center;
+    gap: 2.7px;
+    font-size: 1.3rem;
+    color: rgba(112, 112, 112, 1);  
+    font-weight: 500;
+}
+#onlineImg{
+    width: 13px;
+    height: 11px;
 }
 .horizontalCards {
 margin-top: 5.1vw;
 }
 .cartSecondPage{
+    position: relative;
     display: flex;
     padding: 0.9vw 0;
     border-top: 1px solid rgba(217, 217, 217, 1);
@@ -633,10 +680,18 @@ margin-top: 5.1vw;
     border-radius: 8px;
      flex-shrink: 0;
 }
+.titelForMap p {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
 .mapContainer {
     height: 19vw; /*285px*/
+    width: 100%;
     width: 23vw; /*350px*/
     margin-top: 0.9vw;
+    background-image: url(/assets/images/map.svg);
+   background-size: cover;
+    border-radius: 12px;
 }
 .textCartSecondPage {
     font-weight: 500;
@@ -644,7 +699,9 @@ margin-top: 5.1vw;
     flex-direction: column;
     gap: 3.2vw;
     line-height: 1.5;
+     padding-right: 2vw;
 }
+
 
 
 /*################  @media  ####################*/
@@ -663,7 +720,7 @@ height: 1.5vw;
    .joinMeetup {
     width: 12vw;
 }
-.filter button {
+.dropdownBtn {
 font-size: 1.1rem;
 }
 }
@@ -782,21 +839,9 @@ border-radius: 5px;
     padding: 4vw;
     width: 100%;
 }
-.filter {
-  overflow-x: auto;
-  width: 100%;
-  padding-bottom: 10px;
-  margin-top: 3vw;
-  flex-shrink: 0;
-  scroll-behavior: smooth;
+.rightWithMap {
+    display: none;
 }
-.filter button {
-  flex-shrink: 0;
-   white-space: nowrap;
-  font-size: 1.2rem;
-  min-width: 118px
-}
-
 }
 
 /* ########## 500px ############ */
@@ -806,17 +851,14 @@ border-radius: 5px;
         font-size: 9px;
     }
     p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     h2 {
-        font-size: 2.3rem;
-        padding: 0 4vw;
-    }
-    h3 {
-        font-size: 1.5rem;
+        font-size: 2.7rem; /* titel*/
+        margin-left: 4vw;
     }
     h4 {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
     .oneCartinFrends a {
         font-size: 1.3rem;
@@ -943,17 +985,25 @@ margin-bottom: 11.2vw;
 .iconWithText {
     width: 34.4vw;
     height: 28.6vw;
-    padding: 4.3vw 6.8vw;
+    padding: 4vw 5vw;
     gap: 1.1vw;
+
+}
+.iconWithText p {
+    font-size: 1.7rem;
 }
 #popularString {
 padding: 2vw 4vw 1.5vw 4vw;
 line-height: 2;
 margin: 0;
+font-size: 1.3rem;
 }
  .popularCitie img {
     width: 39vw;
 }
+ .popularCitie h3 {
+    font-size: 1.6rem;
+ }
 .conteiner-MeetUp {
      padding: 4vw 4vw 8.2vw 4vw;
      margin-bottom: 0;
@@ -966,6 +1016,9 @@ margin: 0;
     line-height: 1.9;
     gap: 0;
   }
+  .right-MeetUp p {
+    font-size: 1.3rem;
+}
   .signUpRed {
     width: 49vw;
     height: 10.2vw;
@@ -981,6 +1034,9 @@ margin: 0;
   .discoverAndStart {
     flex-wrap: wrap;
   }
+  .containerForCities {
+    gap: 4.5vw;
+  }
   .conteinerForGroups{
 margin: 0 4vw;
 gap: 0;
@@ -995,7 +1051,8 @@ gap: 2.5vw;
     line-height: 1.4;
   }
   #iconForDiscover {
-font-size: 6.5vw;
+font-size: 4rem;
+font-weight: 600;
 margin: 0 3.8vw;
   }
   .frendString {
@@ -1013,6 +1070,9 @@ display: none;
 padding: 2.9vw 22.5vw 3.9vw 0;
   }
   .labelApp {
+    display: none;
+  }
+  #attendesText {
     display: none;
   }
   .containerForLinks p {
@@ -1034,9 +1094,6 @@ border: none;
 #date{
     font-size: 1.5rem;
     margin-bottom: 6.6vw;
-}
-.getStarted{
-padding: 2.4vw 3.6vw;
 }
 .mittelFooter{
 width: 100%;
@@ -1063,14 +1120,60 @@ margin: 3.1vw 0 13vw 0;
 .mittelTugeserSecond {
     padding: 2.8vw 2.8vw 6.6vw 2.8vw;
 }
-.rightWithMap {
-    display: none;
-}
-
 .titelForFilter h3 {
     font-size: 2.2rem;
+    margin-top: 4vw;
 }
-.filter button{
-font-size: 1.5rem;
+.filter {
+    gap: 15px;
+  overflow-x: auto;
+   overflow-y: hidden;
+  width: 100%;
+  padding-bottom: 2.5vw;
+  margin-top: 3vw;
+  flex-shrink: 0;
+  scroll-behavior: smooth;
 }
+.dropdownBtn {
+  border: none;
+  background-color: rgba(246, 247, 248, 1);
+  border-radius: 40px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.filter::-webkit-scrollbar {
+  height: 8px;
+}
+
+.filter::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+   .dropdownOptions {
+        min-width: 120px;
+        font-size: 1rem;
+    }
+    .one {
+        display: none;
+    }
+    .two {
+        display: flex;
+    }
+    .onlineText p {
+font-size: 0.8rem;
+    }
+    #onlineImg {
+        width: 2vw;
+        height: 1.6vw;
+    }
+   .cartSecondPage {
+        padding: 2vw 0 10vw 0;
+    }
 }

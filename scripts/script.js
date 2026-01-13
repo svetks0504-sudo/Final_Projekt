@@ -207,7 +207,7 @@ const upcomingOnlineEventsDiv = document.querySelector(".upcomingOnlineEventsDiv
 const imageMeetup = document.querySelector("#imageMeetup");
 const joinMeetup = document.querySelector(".joinMeetup");
 const horizontalCards = document.querySelector(".horizontalCards");
-const filterDropdown = document.querySelectorAll(".filterDropdown");//забула що нужно з детьми
+const filterButtons = document.querySelectorAll(".filter .dropdownBtn");
 
 function pageSwitcher(elem, src){
    if (!elem) return;
@@ -237,12 +237,12 @@ calendar_today
 </span> ${element.date}</p> 
 
  <div class="goingAndPrice">
-    <span>
+    <span class="forBlackText">
       <span class="material-symbols-outlined">priority</span>
       ${element.attendees}
     </span> 
 
-    <span>
+    <span class="forBlackText">
       <span class="material-symbols-outlined">confirmation_number</span>
       ${element.price}
     </span> 
@@ -292,16 +292,29 @@ const newCarts = document.createElement("div");
 newCarts.classList.add("cartSecondPage");
 
 newCarts.innerHTML=`
-<img src=${element.image} alt=${element.title}/>
+<img src=${element.image} alt="${element.title}"/>
+${element.type !== "offline" ? `
+  <div class="onlineText one">
+    <img id="onlineImg" src="assets/icons/online.svg" alt="Online event"/>
+    <p>Online Event</p>
+  </div>
+` : ""}
 <div class="textCartSecondPage">
 <div>
-<p class="textGreyAndSmall">${formatDateUTC(element.date)}</p>
+<p class="textBrounAndSmall">${formatDateUTC(element.date)}</p>
 <p>${element.title}</p>
 <p class="textGreyAndSmall">${element.category}(${element.distance} km)</p>
+${element.type !== "offline" ? `
+  <div class="onlineText two">
+    <img id="onlineImg" src="assets/icons/online.svg" alt="Online event"/>
+    <p>Online Event</p>
+  </div>
+` : ""}
 </div>
  ${element.attendees != null ? `<p id="attendesText" class="textGreyAndSmall">${element.attendees} attendees</p>` : ""}
 </div>
 `;
+
 
 horizontalCards.appendChild(newCarts);
   });
@@ -318,14 +331,18 @@ filters.forEach(filter => {
 
 // рендер dropdown опций
 function renderDropdownOptions() {
-  filterDropdown.forEach(dropdown => {
-    const btn = dropdown.querySelector(".dropdownBtn");
-const optionsContainer = dropdown.querySelector(".dropdownOptions");
-    const type = dropdown.dataset.type;
-  
-    optionsContainer.innerHTML = "";//забила очистить
+  filterButtons.forEach(btn => {
+    const type = btn.dataset.type;
 
-    // создаем опции
+    // контейнер для опций в body
+    const optionsContainer = document.createElement("div");
+    optionsContainer.classList.add("dropdownOptions");
+    optionsContainer.style.display = "none";
+optionsContainer.style.position = "fixed";
+
+    document.body.appendChild(optionsContainer);
+
+    // render опции
     filters.find(filter => filter.type === type).options.forEach(option => {
       const div = document.createElement("div");
       div.classList.add("option");
@@ -337,16 +354,50 @@ const optionsContainer = dropdown.querySelector(".dropdownOptions");
         btn.innerHTML = (option instanceof Date ? formatDateUTC(option) : option) + ' <img src="assets/icons/SVG.svg"/>';
         optionsContainer.style.display = "none"; // прячем список
         applyFilters(eventsStore, selectedFilters); // нов карточки
+
+         window.removeEventListener('resize', updatePosition);
+        window.removeEventListener('scroll', updatePosition);
       });
 
       optionsContainer.appendChild(div);
     });
 
-    // toggle спискa
-    btn.addEventListener("click", () => {
-      optionsContainer.style.display = optionsContainer.style.display === "block" ? "none" : "block";
+       const updatePosition = () => {
+    const rect = btn.getBoundingClientRect();
+    optionsContainer.style.position = "fixed";
+    optionsContainer.style.top = rect.bottom + "px";
+    optionsContainer.style.left = rect.left + "px";
+
+    const viewportWidth = window.innerWidth;
+    if (rect.left + optionsContainer.offsetWidth > viewportWidth) {
+        optionsContainer.style.left = viewportWidth - optionsContainer.offsetWidth + "px";
+    }
+};
+
+btn.addEventListener("click", (elem) => {
+  elem.stopPropagation();
+document.querySelectorAll('.dropdownOptions').forEach(opt => {
+        if(opt !== optionsContainer) opt.style.display = "none";
+      });
+
+      if(optionsContainer.style.display === "block") {
+        optionsContainer.style.display = "none";
+        window.removeEventListener('resize', updatePosition);
+        window.removeEventListener('scroll', updatePosition);
+      } else {
+        optionsContainer.style.display = "block";
+        updatePosition();
+        window.addEventListener('resize', updatePosition);
+        window.addEventListener('scroll', updatePosition);
+      }
     });
   });
+  // закриття меню при кліку поза ними
+document.addEventListener('click', (elem) => {
+    if(!elem.target.closest('.dropdownBtn') && !elem.target.closest('.dropdownOptions')){
+        document.querySelectorAll('.dropdownOptions').forEach(opt => opt.style.display = "none");
+    }
+});
 }
 
 function applyFilters(events, filters) {
