@@ -235,7 +235,7 @@ function createCartsForEvents(arr, container){
 const newCarts = document.createElement("div");
 newCarts.classList.add("carts");
 
- //не виходило вставити малюнок як div
+
   newCarts.innerHTML=`
  
  <img src="${element.image}" alt="${element.title}">
@@ -343,7 +343,7 @@ filters.forEach(filter => {
 // рендер dropdown опций
 function renderDropdownOptions() {
   filterButtons.forEach(btn => {
-    const type = btn.dataset.type;
+    const type = btn.getAttribute('dataType');
 
     // контейнер для опций в body
     const optionsContainer = document.createElement("div");
@@ -353,13 +353,13 @@ optionsContainer.style.position = "fixed";
 
     document.body.appendChild(optionsContainer);
 
-    // render опции
+    // render создаем опции 
     filters.find(filter => filter.type === type).options.forEach(option => {
       const div = document.createElement("div");
       div.classList.add("option");
       div.textContent = option instanceof Date ? formatDateUTC(option) : option;
 
-      //вешаем слушателя на клик
+      //вешаем слушателя на клик опции
       div.addEventListener("click", () => {
         selectedFilters[type] = option;
         btn.innerHTML = (option instanceof Date ? formatDateUTC(option) : option) + ' <img src="assets/icons/SVG.svg"/>';
@@ -374,7 +374,7 @@ optionsContainer.style.position = "fixed";
     });
 
        const updatePosition = () => {
-    const rect = btn.getBoundingClientRect();
+    const rect = btn.getBoundingClientRect();//местоположение кнопки
     optionsContainer.style.position = "fixed";
     optionsContainer.style.top = rect.bottom + "px";
     optionsContainer.style.left = rect.left + "px";
@@ -393,7 +393,7 @@ document.querySelectorAll('.dropdownOptions').forEach(opt => {
 
       if(optionsContainer.style.display === "block") {
         optionsContainer.style.display = "none";
-        window.removeEventListener('resize', updatePosition);
+        window.removeEventListener('resize', updatePosition);//опции под кнопкой
         window.removeEventListener('scroll', updatePosition);
       } else {
         optionsContainer.style.display = "block";
@@ -403,7 +403,9 @@ document.querySelectorAll('.dropdownOptions').forEach(opt => {
       }
     });
   });
-  // закриття меню при кліку поза ними
+
+  
+  // закрытие при клике вне
 document.addEventListener('click', (elem) => {
     if(!elem.target.closest('.dropdownBtn') && !elem.target.closest('.dropdownOptions')){
         document.querySelectorAll('.dropdownOptions').forEach(opt => opt.style.display = "none");
