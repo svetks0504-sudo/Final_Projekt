@@ -9,6 +9,8 @@ const eventsStore = [
     attendees: 99,
     category: "Hobbies and Passions",
     distance: 50,
+      lat: 40.7306,
+    lng: -73.9866, // Manhattan
   },
   {
     title:
@@ -21,6 +23,8 @@ const eventsStore = [
     attendees: 43,
     category: "Technology",
     distance: 25,
+     lat: 40.7411,
+    lng: -73.9897, // Midtown
   },
   {
     title: "Book 40+ Appointments Per Month Using AI and Automation",
@@ -31,6 +35,7 @@ const eventsStore = [
     type: "online",
     category: "Technology",
     distance: 10,
+
   },
   {
     title: "Dump writing group weekly meetup",
@@ -42,6 +47,8 @@ const eventsStore = [
     attendees: 77,
     category: "Business",
     distance: 100,
+     lat: 40.7580,
+    lng: -73.9855, // Times Square
   },
   {
     title: "Over 40s, 50s, & 60s Senior Singles Chat, Meet & Dating Community",
@@ -53,6 +60,8 @@ const eventsStore = [
     attendees: 140,
     category: "Social Activities",
     distance: 74,
+     lat: 40.7061,
+    lng: -74.0086, // Wall Street
   },
   {
     title: "All Nations - Manhattan Missions Church Bible Study",
@@ -63,6 +72,8 @@ const eventsStore = [
     type: "offline",
     category: "Health and Wellbeing",
     distance: 15,
+     lat: 40.7831,
+    lng: -73.9712, // Upper West Side
   },
 ];
 
@@ -422,6 +433,7 @@ function applyFilters(events, filters) {
 
   createHorizontalCard(filtered); // рендер карточек
 }
+
 
 createCartsForEvents(eventsNear, eventsNearDiv);
 createCartsForEvents(upcomingOnlineEvents, upcomingOnlineEventsDiv);

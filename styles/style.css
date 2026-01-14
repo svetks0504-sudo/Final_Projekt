@@ -56,7 +56,7 @@ font-size: 1rem;
 .leftHeader {
 display: flex;
 align-items: center;
-height: 2,7vw;
+height: 2.7vw;
 
 }
 header img {
@@ -686,12 +686,32 @@ margin-top: 5.1vw;
 }
 .mapContainer {
     height: 19vw; /*285px*/
-    width: 100%;
+  
     width: 23vw; /*350px*/
     margin-top: 0.9vw;
     background-image: url(/assets/images/map.svg);
    background-size: cover;
     border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#openMap{
+    color: rgba(0, 121, 138, 1);
+    border: 2px solid rgba(0, 121, 138, 1);
+    border-radius: 8px;
+    text-decoration: none;
+display: flex;
+align-items: center;
+gap: 0.5vw;
+padding: 0.9vw 1.2vw;
+background-color: rgba(255, 255, 255, 1);
+font-size: 0.9rem;
+font-weight: 500;
+}
+.mapContainer img {
+ width: 1vw;
+ height: 1vw;   
 }
 .textCartSecondPage {
     font-weight: 500;
